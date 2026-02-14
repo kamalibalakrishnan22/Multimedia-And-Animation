@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABCD Bakery | Fudgy Brownie Cookies</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background: linear-gradient(135deg,#e8dff5,#f7f4fb,#efe6f4);
+    min-height:100vh;
+    text-align:center;
+    color:#333;
+}
+
+/* HERO SECTION */
+
+.hero{
+    padding:80px 20px;
+}
+
+.logo img{
+    width:280px;
+    animation:float 4s ease-in-out infinite;
+}
+
+h1{
+    font-family:'Playfair Display',serif;
+    font-size:50px;
+    margin-top:20px;
+    color:#5a3b6e;
+}
+
+.subtitle{
+    margin:15px 0 25px;
+    font-style:italic;
+    color:#7d6a8f;
+}
+
+.description{
+    max-width:800px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+/* BUTTON */
+
+.btn{
+    padding:15px 40px;
+    border-radius:50px;
+    border:none;
+    font-size:16px;
+    cursor:pointer;
+    background:#5a3b6e;
+    color:white;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#432552;
+    transform:translateY(-4px);
+}
+
+/* FULL SCREEN MENU */
+
+.menu-overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(rgba(232,223,245,0.95), rgba(247,244,251,0.95)),
+                url("bakery-bg.jpg") center/cover no-repeat;
+    backdrop-filter:blur(5px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:60px 20px;
+    overflow-y:auto;
+    opacity:0;
+    visibility:hidden;
+    transition:0.6s ease;
+}
+
+.menu-overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+/* CLOSE BUTTON */
+
+.close-btn{
+    position:absolute;
+    top:25px;
+    right:40px;
+    font-size:30px;
+    cursor:pointer;
+    color:#5a3b6e;
+}
+
+/* MENU TITLE */
+
+.menu-overlay h2{
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    color:#5a3b6e;
+    margin-bottom:40px;
+}
+
+/* MENU GRID */
+
+.menu-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    max-width:1200px;
+    width:100%;
+}
+
+.menu-card{
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+    transition:0.4s;
+}
+
+.menu-card:hover{
+    transform:translateY(-10px);
+}
+
+.menu-card h3{
+    font-family:'Playfair Display',serif;
+    color:#5a3b6e;
+    margin-bottom:10px;
+}
+
+.price{
+    font-weight:600;
+    margin-bottom:15px;
+    color:#432552;
+}
+
+.menu-card p{
+    font-size:15px;
+    line-height:1.7;
+}
+
+/* ANIMATION */
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+    100%{transform:translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+    <div class="logo">
+        <img src="C:\Users\admin\OneDrive\Desktop\Brown Elegant Chocolate Shop Logo (1).png" alt="Bakery Logo">
+    </div>
+
+    <h1>Fudgy Brownie Cookies</h1>
+    <div class="subtitle">Est. 1991 • Best Homemade Baking</div>
+
+    <p class="description">
+        At ABCD Bakery, we believe every dessert should create a memory. Our signature fudgy brownie cookies are handcrafted with premium cocoa, farm-fresh butter, and carefully selected ingredients to deliver a rich, melt-in-your-mouth experience in every bite. With a perfect balance of crispy edges and a soft, gooey center, each cookie is baked fresh daily to ensure warmth, flavor, and quality you can truly taste. From our classic brownie cookie to indulgent salted caramel and molten chocolate lava creations, every variety is thoughtfully prepared to satisfy chocolate lovers of all ages. Whether you are treating yourself, sharing with family, or gifting someone special, our beautifully packed brownie selections bring sweetness, comfort, and joy to every occasion.
+    </p>
+
+    <button class="btn" onclick="openMenu()">Explore Menu</button>
+</div>
+
+<!-- FULL SCREEN MENU -->
+
+<div class="menu-overlay" id="menu">
+
+    <div class="close-btn" onclick="closeMenu()">✕</div>
+
+    <h2>Our Signature Menu</h2>
+
+    <div class="menu-container">
+
+        <div class="menu-card">
+            <h3>Classic Fudgy Brownie Cookie</h3>
+            <div class="price">₹120</div>
+            <p>
+                Our timeless bestseller with a crackly top, soft gooey center,
+                and deep chocolate flavor that satisfies every craving.
+            </p>
+        </div>
+
+        <div class="menu-card">
+            <h3>Double Chocolate Chip Delight</h3>
+            <div class="price">₹150</div>
+            <p>
+                Loaded with premium chocolate chunks, delivering
+                an intense chocolate explosion in every bite.
+            </p>
+        </div>
+
+        <div class="menu-card">
+            <h3>Walnut Crunch Brownie</h3>
+            <div class="price">₹170</div>
+            <p>
+                Roasted walnuts blended into our signature brownie dough
+                for a perfect mix of crunch and softness.
+            </p>
+        </div>
+
+        <div class="menu-card">
+            <h3>Salted Caramel Brownie</h3>
+            <div class="price">₹180</div>
+            <p>
+                A smooth caramel center with a hint of sea salt,
+                creating a perfect sweet and savory balance.
+            </p>
+        </div>
+
+        <div class="menu-card">
+            <h3>Chocolate Lava Cookie</h3>
+            <div class="price">₹200</div>
+            <p>
+                Break it open to reveal warm molten chocolate
+                flowing from the center — pure indulgence.
+            </p>
+        </div>
+
+        <div class="menu-card">
+            <h3>Premium Brownie Gift Box (6 pcs)</h3>
+            <div class="price">₹650</div>
+            <p>
+                Elegantly packed assortment ideal for gifting,
+                celebrations, or sharing special moments with loved ones.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function openMenu(){
+    document.getElementById("menu").classList.add("active");
+}
+
+function closeMenu(){
+    document.getElementById("menu").classList.remove("active");
+}
+</script>
+
+</body>
+</html>
